@@ -2,23 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 public class PlayerTeleport : MonoBehaviour
 {
-    private GameObject currentTeleporter = null;
-	
-	private PlayerInputs entrada;
-	
+    [SerializeField]private GameObject currentTeleporter;
     void Update()
     {
-		entrada = new PlayerInputs();
-		entrada.Player.Interact.performed += DoInteract;
-		entrada.Player.Interact.Enable();
+        if((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton11))){
+            StartCoroutine(teleportation());
+        
+        }
+        
     }
-	
-	private void DoInteract(InputAction.CallbackContext context) {
-		StartCoroutine(teleportation());
-	}
 
     IEnumerator teleportation()
     {
@@ -40,7 +34,6 @@ public class PlayerTeleport : MonoBehaviour
             currentTeleporter = collision.gameObject;
         }
     }
-	
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.CompareTag("Portal"))

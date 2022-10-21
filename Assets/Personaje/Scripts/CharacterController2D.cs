@@ -138,42 +138,6 @@ public class CharacterController2D : MonoBehaviour
 	public void Move(float move, bool jump, bool dash)
 	{
 		if (canMove) {
-			if (m_Rigidbody2D.velocity.y < -limitFallSpeed)
-					m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, -limitFallSpeed);
-			// Move the character by finding the target velocity
-			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
-			// And then smoothing it out and applying it to the character
-			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref velocity, m_MovementSmoothing);
-			// If the input is moving the player right and the player is facing left...
-			if (move > 0 && !m_FacingRight && !isWallSliding)
-			{
-				// ... flip the player.
-				Flip();
-			}
-			// Otherwise if the input is moving the player left and the player is facing right...
-			else if (move < 0 && m_FacingRight && !isWallSliding)
-			{
-				// ... flip the player.
-				Flip();
-			}
-				
-			if (m_Grounded && jump)
-			{
-				// Add a vertical force to the player.
-				animator.SetBool("IsJumping", true);
-				animator.SetBool("JumpUp", true);
-				m_Grounded = false;
-				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-				canDoubleJump = true;
-				particleJumpDown.Play();
-				particleJumpUp.Play();
-			}
-		}
-	}
-
-	/*public void Move(float move, bool jump, bool dash)
-	{
-		if (canMove) {
 			if (dash && canDash && !isWallSliding)
 			{
 				//m_Rigidbody2D.AddForce(new Vector2(transform.localScale.x * m_DashForce, 0f));
@@ -287,7 +251,7 @@ public class CharacterController2D : MonoBehaviour
 				canDoubleJump = true;
 			}
 		}
-	}*/
+	}
 
 
 	private void Flip()
