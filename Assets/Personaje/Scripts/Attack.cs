@@ -30,15 +30,14 @@ public class Attack : MonoBehaviour
     void Update()
     {
 		
+	}
+	public void Shoot (InputAction.CallbackContext context) {
 
-		if (Input.GetKeyDown(KeyCode.V))
-		{
 			GameObject throwableWeapon = Instantiate(throwableObject, transform.position + new Vector3(transform.localScale.x * 0.7f,0f), Quaternion.identity) as GameObject; 
 			Vector2 direction = new Vector2(transform.localScale.x, 0);
 			throwableWeapon.GetComponent<ThrowableWeapon>().direction = direction; 
 			throwableWeapon.name = "ThrowableWeapon";
-		}
-	}
+	} 
 	public void MeleeAttack (InputAction.CallbackContext context) {
 
 			canAttack = false;
