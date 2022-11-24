@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | NIvel 1 Immortal</title>
+    <title>Unity WebGL Player | Immortal</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=1920 height=1080></canvas>
+      <canvas id="unity-canvas" width=800 height=600></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -20,7 +20,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">NIvel 1 Immortal</div>
+        <div id="unity-build-title">Immortal</div>
       </div>
     </div>
     <script>
@@ -55,15 +55,15 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "Build2";
-      var loaderUrl = buildUrl + "/Build2.loader.js";
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/Downloads.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Build2.data",
-        frameworkUrl: buildUrl + "/Build2.framework.js",
-        codeUrl: buildUrl + "/Build2.wasm",
+        dataUrl: buildUrl + "/Downloads.data",
+        frameworkUrl: buildUrl + "/Downloads.framework.js",
+        codeUrl: buildUrl + "/Downloads.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "NIvel 1 Immortal",
+        companyName: "PlayScore",
+        productName: "Immortal",
         productVersion: "1.0",
         showBanner: unityShowBanner,
       };
@@ -93,8 +93,8 @@
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = "1920px";
-        canvas.style.height = "1080px";
+        canvas.style.width = "800px";
+        canvas.style.height = "600px";
       }
 
       loadingBar.style.display = "block";
